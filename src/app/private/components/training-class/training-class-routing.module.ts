@@ -5,7 +5,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormMode } from 'src/app/shared/constant/form-mode';
 
-const routes: Routes = [{
+const routes: Routes = [
+  {
   path: '',
   children: [
     { path: '', component: TrainingClassListComponent },
