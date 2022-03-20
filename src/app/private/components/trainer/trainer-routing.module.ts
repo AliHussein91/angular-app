@@ -4,29 +4,35 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormMode } from 'src/app/shared/constant';
 
-
-const routes: Routes = [  {
-  path: '',
-  children: [
-    { path: '', component: TrainerListComponent },
-    {
-      path: 'create',
-     component: TrainerCrudComponent,
-     data: {mode: FormMode.Create}
-     },
-    { path: 'update/:id/:wave',
-     component: TrainerCrudComponent ,
-     data: {mode: FormMode.Update}
-    },
-    { path: 'read/:id/:wave',
-     component: TrainerCrudComponent ,
-     data: {mode: FormMode.Read}
-    }
-  ],
-}];
+const routes: Routes = [
+  {
+    path: '',
+    children: [
+      {
+        path: '', 
+        component: TrainerListComponent
+      },
+      {
+        path: 'create',
+        component: TrainerCrudComponent,
+        data: { mode: FormMode.Create },
+      },
+      {
+        path: 'update/:id/:wave',
+        component: TrainerCrudComponent,
+        data: { mode: FormMode.Update },
+      },
+      {
+        path: 'delete/:id/:wave',
+        component: TrainerCrudComponent,
+        data: { mode: FormMode.Delete },
+      },
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class TrainerRoutingModule { }
+export class TrainerRoutingModule {}

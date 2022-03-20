@@ -19,9 +19,9 @@ const routes: Routes = [
      component: TrainingClassCrudComponent ,
      data: {mode: FormMode.Update}
     },
-    { path: 'read/:id/:wave',
+    { path: 'delete/:id/:wave',
      component: TrainingClassCrudComponent ,
-     data: {mode: FormMode.Read}
+     data: {mode: FormMode.Delete}
     }
   ],
 }];

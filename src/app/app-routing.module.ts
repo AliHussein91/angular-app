@@ -1,18 +1,26 @@
-import { ResetPasswordComponent } from './public/components/reset-password/reset-password.component';
-import { LoginComponent } from './public/components/login/login.component';
-import { HomepageComponent } from './public/components/homepage/homepage.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './core/guards/auth.guard';
+import { NotFoundComponent } from './public/components/not-found/not-found.component';
 
 const routes: Routes = [
-  {path: '', component: HomepageComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'reset-password', component: ResetPasswordComponent},
-  { path: '**', redirectTo: 'error/404' }
+  {
+    path: '',
+    loadChildren: () =>
+      import('./public/public.module').then((m) => m.PublicModule),
+  },
+  {
+    path: 'home',
+    canLoad: [AuthGuard],
+    loadChildren: () =>
+      import('./private/private.module').then((m) => m.PrivateModule),
+  },
+  {path: '404', component: NotFoundComponent},
+  {path: '**', redirectTo: '/404'}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
