@@ -1,6 +1,5 @@
 import { MainpageComponent } from './components/mainpage/mainpage.component';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { PrivateRoutingModule } from './private-routing.module';
 import { PrivateComponent } from './private.component';
@@ -13,8 +12,15 @@ import { AttendanceComponent } from './components/attendance/attendance/attendan
 import { AttendanceCrudComponent } from './components/attendance/attendance-crud/attendance-crud.component';
 
 @NgModule({
-  declarations: [PrivateComponent, MainpageComponent, ProfileComponent, TrainerCrudComponent, TrainerListComponent, AttendanceComponent, AttendanceCrudComponent],
-  imports: [CommonModule, PrivateRoutingModule, SharedModule],
-  exports:[MainpageComponent, ProfileComponent]
+  declarations: [
+    PrivateComponent,
+    MainpageComponent,
+    ProfileComponent,
+    TrainerCrudComponent,
+    TrainerListComponent,
+    AttendanceComponent,
+    AttendanceCrudComponent,
+  ],
+  imports: [PrivateRoutingModule, SharedModule],
 })
 export class PrivateModule {}

@@ -1,1 +1,33 @@
-<p>sidenav works!</p>
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav">
+    <button color="primary" mat-button routerLink="home/trainer" routerLinkActive="active"  *ngIf="isAuthurised()">Trainers</button>
+    <button color="primary" mat-button routerLink="home/trainee" routerLinkActive="active"  *ngIf="isAuthurised()">Trainees</button>
+    <button color="primary" mat-button routerLink="home/training-class" routerLinkActive="active"  *ngIf="isAuthurised()">Training
+      Classes</button>
+    <button color="primary" mat-button routerLink="home/attendance" routerLinkActive="active"  *ngIf="isAuthurised()">Attendance</button>
+  </mat-drawer>
+  <mat-drawer-content class="sidenav-content">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <button mat-icon-button (click)="drawer.toggle()" >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Title</span>
+        <span class="spacer"></span>
+        <button mat-button routerLink="">
+          Home
+          <mat-icon>home</mat-icon>
+        </button> 
+        <button mat-button routerLink="" *ngIf="isAuthurised()">
+          Sign Out
+          <mat-icon>logout</mat-icon>
+        </button>
+        <button mat-button routerLink="login" *ngIf="!isAuthurised()">
+          Sign In
+          <mat-icon>login</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -2,14 +2,12 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TokenService {
+  constructor() {}
 
-  constructor() { }
-
-  isAuthurised(){
-    return of(false);
+ isAuthurised() {
+    return of(true);
   }
-
 }

@@ -1,3 +1,5 @@
+import { map } from 'rxjs';
+import { TokenService } from './../../../core/services/token.service';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
@@ -8,9 +10,12 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth:TokenService) { }
 
   ngOnInit(): void {
   }
-
+  isAuthurised(){
+    
+   return true;
+  }
 }

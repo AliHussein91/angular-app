@@ -7,11 +7,11 @@ import { FormMode } from 'src/app/shared/constant';
 const routes: Routes = [
   {
     path: '',
+    component: TrainerListComponent,
     children: [
-      {
-        path: '', 
-        component: TrainerListComponent
-      },
+      // {
+      //   path: '', 
+      // },
       {
         path: 'create',
         component: TrainerCrudComponent,

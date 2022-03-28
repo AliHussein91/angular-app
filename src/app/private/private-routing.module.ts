@@ -1,4 +1,4 @@
-import { MainpageComponent } from './components/mainpage/mainpage.component';
+import { PrivateComponent } from './private.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -9,10 +9,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: MainpageComponent,
+        component: PrivateComponent,
       },
       {
         path: 'trainer',
+        
         loadChildren: () =>
           import('./components/trainer/trainer.module').then(
             (m) => m.TrainerModule

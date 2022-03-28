@@ -14,6 +14,7 @@ const routes: Routes = [
     canLoad: [AuthGuard],
     loadChildren: () =>
       import('./private/private.module').then((m) => m.PrivateModule),
+      
   },
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'}
